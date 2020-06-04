@@ -41,6 +41,14 @@ Ele irá instalar toda as dependencias do projeto, configuradas no arquivo.
 
 ## Rodar os cenários 
 
+- Rodando toda a feature
+
 ````
 robot -d ./log feature/titile.robot
 ```` 
+
+- Rodando uma tag 
+
+```
+robot -d ./log -i tag feature/checkbox.robot
+```
