@@ -44,11 +44,11 @@ Ele irá instalar toda as dependencias do projeto, configuradas no arquivo.
 - Rodando toda a feature
 
 ````
-robot -d ./log feature/titile.robot
+robot -d ./log src/feature/titile.robot
 ```` 
 
 - Rodando uma tag 
 
 ```
-robot -d ./log -i tag feature/checkbox.robot
+robot -d ./log -i tag src/feature/checkbox.robot
 ```

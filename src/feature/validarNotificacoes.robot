@@ -12,37 +12,39 @@ Test Teardown   Encerra sessão
 
 *** Test Cases ***
 Verifica o valor ao informar o numero da linha
-    Go To                   ${url}/login   
-    Input Text              css:input[name=username]             stark
-    Input Text              css:input[name=password]             jarvis!
-    Click Element           class:btn-login
-
-    Page Should Contain     Olá, Tony Stark. Você acessou a área logada!
+    Go To                       ${url}/login   
+    Login With                  stark                                           jarvis!
+    Should See Logged User      Tony Stark
 
 
 Senha inválida     
-    [tags]                  login_error  
-    Go To                   ${url}/login   
-    Input Text              css:input[name=username]             stark
-    Input Text              css:input[name=password]             jarvis
-    Click Element           class:btn-login
+    [tags]                      login_error  
+    Go To                       ${url}/login   
+    Login With                  stark                                           lsajl
 
-    ${message}=             Get WebElement                      id:flash 
-    Should Contain          ${message.text}                     Senha é invalida!
+    Should Contain Login Alert   Senha é invalida!
             
 User inválida     
-    [tags]                  user_invalido  
-    Go To                   ${url}/login   
-    Input Text              css:input[name=username]             stprisciark
-    Input Text              css:input[name=password]             jarvis
-    Click Element           class:btn-login
-
-    ${message}=             Get WebElement                      id:flash 
-    Should Contain          ${message.text}                     O usuário informado não está cadastrado!
-            
+    [tags]                      user_invalido  
+    Go To                       ${url}/login   
+    Login With                  priscila                                           jarvis
+    Should Contain Login Alert  O usuário informado não está cadastrado!
+        
 
 	
+*** Keywords ***
+Login With
+    [Arguments]             ${username}                         ${password}
+    
+    Input Text              css:input[name=username]            ${username}  
+    Input Text              css:input[name=password]            ${password}
+    Click Element           class:btn-login
 
+Should Contain Login Alert
+    [Arguments]            ${expect_message}
+    ${message}=             Get WebElement                      id:flash 
+    Should Contain          ${message.text}                     ${expect_message}
 
-
-
+Should See Logged User
+    [Arguments]             ${full_name}
+    Page Should Contain     Olá, ${full_name}. Você acessou a área logada!
