@@ -7,15 +7,11 @@ Documentation     A resource file with reusable keywords and variables.
 ...               by the imported SeleniumLibrary.
 Library           SeleniumLibrary
 
-Resource    ../pages/elements.robot
+Resource    ../variables/base.robot
+Resource    ../variables/consulta_elements.robot
 
 
 *** Keywords ***
-Open Browser To Login Page
-    Open Browser                ${WELCOME URL}    ${BROWSER}
-    Maximize Browser Window
-    Set Selenium Speed          ${DELAY}
-    Home Page Should Be Open
 
 Home Page Should Be Open
     Title Should Be             My Store
@@ -23,10 +19,6 @@ Home Page Should Be Open
 Close session
     Capture Page Screenshot
     Close Browser
-
-Go To Login Page
-    Go To                       ${LOGIN URL}
-    Login Page Should Be Open
 
 Input search
     [Arguments]     ${key_search}
