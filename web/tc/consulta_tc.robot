@@ -12,36 +12,37 @@ Documentation     Critérios de aceite:
 # Test Setup        Go To Login Page
 # Test Template     Login With Invalid Credentials Should Fail
 
-Resource            ../config/resource.robot
-Resource            ../pages/elements.robot
+Resource            ../keywords/base_keywords.robot
+Resource            ../keywords/consulta_keywords.robot
+Resource            ../variables/consulta_elements.robot
 
 
 *** Test Cases ***
 
 Validar existencia do campo de busca
     [tags]                      validaComponente
-    Open Browser To Login Page
+    Open Browser In Url
     Set Focus To Element        ${search}
     Capture Element Screenshot  ${search}           campoBusca.png
     Close session
 
 Validar retorno vazio da busca
     [tags]                      busca_vazia
-    Open Browser To Login Page
+    Open Browser In Url
     Search With                 sushi               pesquisa.png
     Should Have Alert           sushi
     Close session
 
 Validar retorno do total de resultados
     [tags]                      retorna_busca
-    Open Browser To Login Page
+    Open Browser In Url
     Search With                 shirt               pesquisa.png
     Should Have Search          1 
     Close session
 
 Validar exibição em formato de lista e grid
     [tags]                      product_view
-    Open Browser To Login Page
+    Open Browser In Url
     Search With                 shirt               pesquisa.png
     Choose List View
     Should Have List Format     ${product_list}     listaView.png
@@ -53,7 +54,7 @@ Validar exibição em formato de lista e grid
 
 Validar total de itens e quantidade por página
     [tags]                          itens_pagina
-    Open Browser To Login Page
+    Open Browser In Url
     Search With                     dress               quantidadeItens.png
     Should Have Itens For Page      7                   itens_pagina.png
     Close session
