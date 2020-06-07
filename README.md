@@ -38,7 +38,7 @@ pip3 install -r requirements.txt
 Ele irá instalar toda as dependencias do projeto, configuradas no arquivo. 
 
 
-## Rodar os cenários 
+## Rodar os cenários - Web 
 
 - Rodando toda a feature
 
@@ -57,6 +57,9 @@ robot -d ./log -i tag web/tc/addRemove_elements/robot
 ````
 robot -d ./log web/gherkin/consulta_bdd.robot
 ```` 
+
+## Rodar cenários - API 
+
 
 
 ## Relatório 
