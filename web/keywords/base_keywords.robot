@@ -16,3 +16,11 @@ Open Browser In Url
     # Maximize Browser Window
     Set Selenium Speed          ${DELAY}
     Home Page Should Be Open
+
+Moust Have Alert 
+    [Arguments]            ${alert_message}
+    
+    Wait Until Page Contains Element            ${alert}             
+    ${message}=                                 Get WebElement          ${alert} 
+    Should Contain                              ${message.text}         ${alert_message}
+    Capture Element Screenshot                  ${alert}                alert.png
