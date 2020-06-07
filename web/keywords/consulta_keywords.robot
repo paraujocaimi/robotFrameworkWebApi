@@ -47,8 +47,8 @@ Welcome Page Should Be Open
 Should Have Alert 
     [Arguments]            ${key_search}
     
-    Wait Until Page Contains Element        ${search_alert}             
-    ${message}=            Get WebElement       ${search_alert} 
+    Wait Until Page Contains Element        ${alert}             
+    ${message}=            Get WebElement       ${alert} 
     Should Contain         ${message.text}      No results were found for your search "${key_search}"
 
 Should Have Search 

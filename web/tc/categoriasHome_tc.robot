@@ -7,8 +7,8 @@ Documentation     Critérios de aceite:
 ...     Os menus devem ser clicáveis e ao acessá-los os produtos da categoria devem ser exibidos.
 
 # Suite Setup       Exibir as categorias de produtos no menu da página inicial
-# Suite Teardown    Close Browser
-# Test Setup        Go To Login Page
+Suite Teardown    Close Browser
+Test Setup        Open Browser In Url
 # Test Template     Login With Invalid Credentials Should Fail
 
 Resource            ../keywords/base_keywords.robot
@@ -24,7 +24,6 @@ Validar exibicao dos menus
     [tags]                      exibicaoMenu
     @{list}=    Create List   Women      Dresses     T-shirts
     
-    Open Browser In Url
     Should Have Block Menu                          ${list}      
     Close session
 
@@ -35,7 +34,6 @@ Validar Woman Menu
     @{woman_top_submenu}=                 Create List     T-shirts                    Blouses
     @{woman_dresses_submenu}=    Create List    Casual Dresses    Evening Dresses     Summer Dresses
 
-    Open Browser In Url
     #mouse over
     Object Mouse Over                                   ${woman_menu}
     #validar que o menu Woman tenha dois submenus
@@ -51,7 +49,6 @@ Validar Dresses Menu
     [tags]                      dressesMenu
     @{womansList_submenu}=        Create List       Casual Dresses      Evening Dresses     Summer Dresses          
 
-    Open Browser In Url
     #mouse over
     Object Mouse Over                               ${dress_menu}
     #validar que o menu Woman tenha dois submenus
@@ -61,7 +58,7 @@ Validar Dresses Menu
 Validar redirecionamento ao clicar nos menus
     [tags]                      redirecionamento
     @{menus_list}=              Create List         Women      Dresses     T-shirts     Tops 
-    Open Browser In Url
+
     When click on Menu Shuld Open Correct Page          ${woman_menu}                   ${menus_list}[0]
     When click on Menu Shuld Open Correct Page          ${dress_menu}                   ${menus_list}[1]
     When click on Menu Shuld Open Correct Page          ${shirt_menu}                   ${menus_list}[2]
