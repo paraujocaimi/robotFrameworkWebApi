@@ -18,36 +18,57 @@ Resource            ../variables/categoriasHome_elements.robot
 Library           Collections
 
 
-
 *** Test Cases ***
 
 Validar exibicao dos menus
-    [tags]                      validaComponente
+    [tags]                      exibicaoMenu
+    @{list}=    Create List   Women      Dresses     T-shirts
+    
     Open Browser In Url
-    Should Have Block Menu      
+    Should Have Block Menu                          ${list}      
     Close session
 
 Validar Woman Menu
+    [tags]                      womanMenu
+
+    @{womansList_submenu}=        Create List       Tops                    Dresses
+    @{woman_top_submenu}=                 Create List     T-shirts                    Blouses
+    @{woman_dresses_submenu}=    Create List    Casual Dresses    Evening Dresses     Summer Dresses
 
     Open Browser In Url
-
     #mouse over
-    Object Mouse Over                           ${woman_menu}
-
+    Object Mouse Over                                   ${woman_menu}
     #validar que o menu Woman tenha dois submenus
-    @{womansList_submenu}=        Create List       Tops                    Dresses
-    Women Menu Should Hava Two submenus             ${womansList_submenu}   2
-
+    Women Menu Should Have Two submenus                 ${womansList_submenu}         2
     #validar que submenu top tenha duas categorias
-    @{TopList}=                 Create List     T-shirts                    Blouses
-    Woman Top Submenu Should Have Categories            ${TopList}          2
-   
+    Woman Top Submenu Should Have Categories            ${woman_top_submenu}          2 
     #validar que submenu dresses tenha 3 categorias 
-    @{DressesList}=    Create List    Casual Dresses    Evening Dresses     Summer Dresses
-    Woman Dresses Submenu Should Have Categories        ${DressesList}      3
+    Woman Dresses Submenu Should Have Categories        ${woman_dresses_submenu}      3
+    Close session
+
 
 Validar Dresses Menu
+    [tags]                      dressesMenu
+    @{womansList_submenu}=        Create List       Casual Dresses      Evening Dresses     Summer Dresses          
 
+    Open Browser In Url
+    #mouse over
+    Object Mouse Over                               ${dress_menu}
+    #validar que o menu Woman tenha dois submenus
+    Dresses Menu Should Have Categories             ${womansList_submenu}   3
+    Close session
 
+Validar redirecionamento ao clicar nos menus
+    [tags]                      redirecionamento
+    @{menus_list}=              Create List         Women      Dresses     T-shirts     Tops 
+    Open Browser In Url
+    When click on Menu Shuld Open Correct Page          ${woman_menu}                   ${menus_list}[0]
+    When click on Menu Shuld Open Correct Page          ${dress_menu}                   ${menus_list}[1]
+    When click on Menu Shuld Open Correct Page          ${shirt_menu}                   ${menus_list}[2]
+    When click on Submenu Shuld Open Correct Page       ${woman_menu}                   ${woman_top_submenu}            ${menus_list}[3]
+    When click on Submenu Shuld Open Correct Page       ${woman_menu}                   ${woman_dresses_submenu}        ${menus_list}[1]
+    Close session
+
+     
 
     

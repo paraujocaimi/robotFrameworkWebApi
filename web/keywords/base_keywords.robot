@@ -13,6 +13,6 @@ Resource    ../keywords/consulta_keywords.robot
 *** Keywords ***
 Open Browser In Url
     Open Browser                ${WELCOME URL}    ${BROWSER}
-    Maximize Browser Window
+    # Maximize Browser Window
     Set Selenium Speed          ${DELAY}
     Home Page Should Be Open
