@@ -81,33 +81,33 @@ Dresses Menu Should Have Categories
     Element Attribute Value Should Be   ${dress_menu_categorie3}       title       ${list}[2]
 
 
-When click on Menu Shuld Open Correct Page
-    [Arguments]                             ${menu}                     ${page}
-    ${page_convert}=                        Convert To Upper Case       ${page}
+Click on Menu Shuld Open Correct Page
+    [Arguments]                             ${menu}                     
 
     Wait Until Page Contains Element        ${block_menu} 
     Mouse Over                              ${block_menu}
     Click Element                           ${menu}
     Wait Until Page Contains Element        ${center_column} 
-    Check Page                              ${page_convert}             ${page}
     Capture Page Screenshot   
 
-When click on Submenu Shuld Open Correct Page
-    [Arguments]     ${menu}     ${submenu}      ${page}
-    ${page_convert}=                                Convert To Upper Case       ${page}
+Click on Submenu Shuld Open Correct Page
+    [Arguments]                             ${menu}                     ${submenu}      
     
     Wait Until Page Contains Element        ${block_menu} 
     Mouse Over	                            ${menu}	
     Wait Until Element Is Visible	        ${submenu}
     Click Link	                            ${submenu}
     Wait Until Page Contains Element        ${center_column} 
-    Check Page                              ${page_convert}             ${page}
     Capture Page Screenshot   
 
 
 Check Page
-    [Arguments]                             ${page_convert}             ${page}
+    [Arguments]                             ${page}
+    ${page_convert}=                        Convert To Upper Case       ${page}
+
     ${title_page}=                          Get text                    ${title_page}
     Should Contain	                        ${title_page}               ${page_convert}
+    
     ${banner}=                              Get text                    ${banner_title}
     Should Contain	                        ${banner}                   ${page}
+    Capture Page Screenshot   

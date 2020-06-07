@@ -52,6 +52,13 @@ robot -d ./log web/tc/addRemove_elements/robot
 robot -d ./log -i tag web/tc/addRemove_elements/robot
 ```
 
+- Rodar um cenário com escrita em Gherkin, neste caso também se aplica rodar apenas uma tag. 
+
+````
+robot -d ./log web/gherkin/categoriasHome_tc.robot
+```` 
+
+
 ## Relatório 
 
 O relatório da execução pode ser visualizado na pasta 
