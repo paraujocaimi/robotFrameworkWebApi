@@ -6,10 +6,8 @@ Documentation     Critérios de aceite:
 ...     No menu Dresses devem ser exibidas as categorias CASUAL DRESSES EVENING DRESSES SUMMER DRESSES;
 ...     Os menus devem ser clicáveis e ao acessá-los os produtos da categoria devem ser exibidos.
 
-# Suite Setup       Exibir as categorias de produtos no menu da página inicial
-Suite Teardown    Close Browser
 Test Setup        Open Browser In Url
-# Test Template     Login With Invalid Credentials Should Fail
+Suite Teardown    Close Browser
 
 Resource            ../keywords/base_keywords.robot
 Resource            ../keywords/categoriasHome_keywords.robot

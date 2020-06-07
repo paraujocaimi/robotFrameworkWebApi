@@ -7,10 +7,8 @@ Documentation     Critérios de aceite:
 ...     No carrinho deve ser exibido o preço unitário do produto, total e a quantidade;
 ...     Deve ser exibido o total da compra.
 
-# Suite Setup       Utilizar o carrinho de compras para adicionar e remover produtos.
-Suite Teardown    Close Browser
 Test Setup        Open Browser In Url
-# Test Template     Login With Invalid Credentials Should Fail
+Suite Teardown    Close Browser
 
 Resource            ../keywords/base_keywords.robot
 Resource            ../keywords/addRemove_keywords.robot

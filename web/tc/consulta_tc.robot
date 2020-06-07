@@ -7,10 +7,8 @@ Documentation     Critérios de aceite:
 ...     Os resultados devem ser exibidos em formato de grid e lista;
 ...     Deve ser exibido o total de itens e quantidade por página.
 
-# Suite Setup       Consultar produtos no site
-Suite Teardown    Close Browser
 Test Setup        Open Browser In Url
-# Test Template     Login With Invalid Credentials Should Fail
+Suite Teardown    Close Browser
 
 Resource            ../keywords/base_keywords.robot
 Resource            ../keywords/consulta_keywords.robot
