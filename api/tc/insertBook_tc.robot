@@ -15,8 +15,13 @@ Library             Collections
 
 ST1: Permitir o cadastro de livros.
     [tags]                                  getOneBook
-    Given Create Session                    books-api               ${baseUrl}
-    ${response}=                            When Get Request        books-api           /${getBooks}/
-    Then Should Have All Keys in List       ${response.json()}
-    And Status Should Be                    200                     ${response}
+
+    Given Create Session                 books-api                      ${baseUrl}
+    ${body}                             And Create Dictionary          Title=${Title}  Description=${Description}  PageCount=${PageCount}      Excerpt=${Excerpt}
+    ${header}                           And Create Dictionary          Content-Type=application/json
+
+    ${response}=                        When Post Request               books-api           /${Books}/     data=${body}     headers=${header}
+    Log                                 Reponse: ${response.text}
+    Then Should Have Keys               ${response.json()}
+    And Status Should Be                200                             ${response}
 

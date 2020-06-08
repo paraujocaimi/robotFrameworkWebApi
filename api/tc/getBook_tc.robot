@@ -18,14 +18,14 @@ Library             Collections
 ST2: Validar retorno da busca de todos os livros cadastrados
     [tags]                                  getOneBook
     Given Create Session                    books-api               ${baseUrl}
-    ${response}=                            When Get Request        books-api           /${getBooks}/
+    ${response}=                            When Get Request        books-api           /${Books}/
     Then Should Have All Keys in List       ${response.json()}
     And Status Should Be                    200                     ${response}
 
 ST3: Validar retorno de dados do livro desejado
     [tags]                      getAllBook
     Given Create Session        books-api               ${baseUrl}
-    ${response}=                When Get Request        books-api           /${getBooks}/1
+    ${response}=                When Get Request        books-api           /${Books}/1
     Then Should Have Keys       ${response.json()}
     And Status Should Be        200                     ${response}
 
