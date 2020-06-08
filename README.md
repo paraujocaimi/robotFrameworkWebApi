@@ -1,7 +1,7 @@
 # Robot Framework 
 
 
-## O que este projeto faz 
+## O que este projeto possui 
 
 - Web :checkered_flag:
     - :trophy: Testes automatizados no site http://automationpractice.com/index.php 
@@ -107,11 +107,11 @@ Através do terminal usar uma das opçoões abaixo
 - Rodar Cenários por Tag 
     - Web
         ```
-            robot -d ./log/web -i tag  web/tc/consulta_tc.robot
+            robot -d /log/web -i tag  web/tc/consulta_tc.robot
         ```
     - API 
          ```
-            robot -d ./log/api -i tag api/tc/insertBook_tc.robot
+            robot -d /log/api -i tag api/tc/insertBook_tc.robot
         ```
 
 
@@ -120,11 +120,11 @@ Através do terminal usar uma das opçoões abaixo
     - Web 
 
         ```
-            robot -d .log/web  web/tc/consulta_tc.robot
+            robot -d log/web  web/tc/consulta_tc.robot
         ```
     - API 
         ```
-            robot -d .log/api api/tc/insertBook_tc.robot
+            robot -d log/api api/tc/insertBook_tc.robot
         ```
 
 
@@ -133,7 +133,7 @@ Através do terminal usar uma das opçoões abaixo
     - Web 
 
         ```
-            robot -d .log/web  web/gherkin/consulta_bdd.robot
+            robot -d log/web  web/gherkin/consulta_bdd.robot
         ```
     - API
         Os cenários já foram escrito em Gherkin

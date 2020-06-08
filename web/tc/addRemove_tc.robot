@@ -48,6 +48,8 @@ Validar dados do produto no carrinho
     Check Modal After Add Product On Cart
     Click Procced To Cart Button
     Check Iten Details In Cart
+    Close session
+
 
 Validar dados finais da compra
     [tags]                      checkDadosFinais
@@ -56,4 +58,6 @@ Validar dados finais da compra
     Check Modal After Add Product On Cart
     Click Procced To Cart Button
     Check Total Price In Cart
+    Close session
+
 
