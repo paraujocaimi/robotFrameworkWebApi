@@ -1,6 +1,8 @@
 *** Settings ***
 Documentation     Critérios de aceite:
 ...
+...     ST1: Consultar produtos no site.
+...
 ...     Deve ser possível consultar os produtos cadastrados por meio de um campo de pesquisa;
 ...     Quando nenhum produto for encontrado, deve ser exibida a mensagem: "No results were found for your search '{TEXTO DA PESQUISA}'";
 ...     Ao realizar uma pesquisa, deve ser exibido o total de resultados;

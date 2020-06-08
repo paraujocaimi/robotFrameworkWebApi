@@ -14,14 +14,14 @@ Library             Collections
 *** Test Cases ***
 
 ST1: Permitir o cadastro de livros.
-    [tags]                                  getOneBook
+    [tags]                                  insertOne
 
-    Given Create Session                 books-api                      ${baseUrl}
-    ${body}                             And Create Dictionary          Title=${Title}  Description=${Description}  PageCount=${PageCount}      Excerpt=${Excerpt}
+    Given Create Session                books-api                      ${baseUrl}
+    ${body}                             And Create Dictionary          Title=${Title}  Description=${Description}  PageCount=${PageCount}      Excerpt=${Excerpt}   PublishDate=${PublishDate}
     ${header}                           And Create Dictionary          Content-Type=application/json
 
-    ${response}=                        When Post Request               books-api           /${Books}/     data=${body}     headers=${header}
+    ${response}=                        When Post Request              books-api           /${Books}/     data=${body}     headers=${header}
     Log                                 Reponse: ${response.text}
     Then Should Have Keys               ${response.json()}
-    And Status Should Be                200                             ${response}
+    And Status Should Be                200                            ${response}
 
