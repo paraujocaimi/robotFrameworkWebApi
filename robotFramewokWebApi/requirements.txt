@@ -1,0 +1,4 @@
+robotframework-seleniumlibrary
+robotframework-requests
+robotframework-jsonschemalibrary
+robotframework-jsonvalidator
